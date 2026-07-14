@@ -12,6 +12,7 @@
             font-family: 'Inter', sans-serif;
             background: #09090b;
             color: #e4e4e7;
+            margin: 0;
         }
         .title-font { font-family: 'Playfair Display', serif; }
         
@@ -22,10 +23,9 @@
         }
         .photo-card:hover {
             transform: scale(1.04);
-            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6);
         }
         .gallery-img {
-            height: 260px;           /* Уменьшил высоту */
+            height: 240px;
             object-fit: cover;
             width: 100%;
         }
@@ -35,8 +35,7 @@
 </head>
 <body class="bg-zinc-950">
 
-    <!-- Hero Section -->
-    <section class="min-h-screen flex items-center justify-center text-center px-6 bg-gradient-to-br from-zinc-900 via-zinc-950 to-black">
+    <section class="min-h-screen flex items-center justify-center text-center px-6 bg-gradient-to-br from-zinc-900 to-black">
         <div class="max-w-4xl">
             <i class="fas fa-heart text-7xl text-red-500 heart mb-8"></i>
             <h1 class="title-font text-6xl md:text-7xl font-bold text-white mb-4">Ирина Андреевна</h1>
@@ -47,8 +46,7 @@
         </div>
     </section>
 
-    <!-- Gallery -->
-    <section id="gallery" class="py-20 px-6 bg-zinc-950">
+    <section id="gallery" class="py-20 px-6">
         <div class="max-w-7xl mx-auto">
             <h2 class="title-font text-5xl font-bold text-center mb-4 text-white">Наши моменты</h2>
             <p class="text-center text-zinc-400 mb-12">Каждое фото — частичка нашей любви</p>
@@ -61,7 +59,7 @@
         const photos = [
             {src: "attachments/2024-09-06 22-07-29.JPG", cap: "Наша красивая встреча в метро с розой"},
             {src: "attachments/2024-05-17 22-26-20.HEIC", cap: "Твой взгляд, от которого замирает сердце"},
-            {src: "attachments/2024-08-03 10-57-19.JPG", cap: "Ты на фоне Невы — невероятно красивая"},
+            {src: "attachments/2024-08-03 10-57-19.JPG", cap: "Ты на фоне Невы"},
             {src: "attachments/2024-06-25 00-15-47.HEIC", cap: "Мы вместе улыбаемся"},
             {src: "attachments/2023-08-14 21-12-23.HEIC", cap: "SUP-прогулка на закате"},
             {src: "attachments/2023-08-07 19-17-05.HEIC", cap: "Селфи с банданой"},
@@ -69,8 +67,8 @@
             {src: "attachments/2023-06-10 17-08-30.HEIC", cap: "На лавочке в парке"},
             {src: "attachments/2023-06-10 16-58-10.JPG", cap: "Ты в цветочном поле"},
             {src: "attachments/2023-04-17 18-03-30.HEIC", cap: "На набережной"},
-            {src: "attachments/2023-04-17 18-02-47.HEIC", cap: "Когда мы смотрим друг на друга, мир перестает иметь значение ибо мы видим целых миров в глазах друг друга"},
-            {src: "attachments/2024-06-08 20-35-14.JPG", cap: "Селфи в туалете, зай это важное фото, говорит оноо том что и в горе и в радости)"},
+            {src: "attachments/2023-04-17 18-02-47.HEIC", cap: "Когда мы смотрим друг на друга"},
+            {src: "attachments/2024-06-08 20-35-14.JPG", cap: "Селфи в машине"},
             {src: "attachments/2023-08-28 17-34-39.HEIC", cap: "В аэропорту"},
         ];
 
@@ -82,7 +80,7 @@
                 card.innerHTML = `
                     <img src="${p.src}" class="gallery-img" alt="Фото">
                     <div class="p-4">
-                        <p class="text-sm text-zinc-300 leading-snug">${p.cap}</p>
+                        <p class="text-sm text-zinc-300">${p.cap}</p>
                     </div>
                 `;
                 container.appendChild(card);
