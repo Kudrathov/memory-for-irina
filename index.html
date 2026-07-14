@@ -8,86 +8,168 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500&display=swap');
         
+        :root {
+            --blue: #3b82f6;
+            --red: #ef4444;
+        }
+        
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', system-ui, sans-serif;
             background: #09090b;
             color: #e4e4e7;
             margin: 0;
         }
-        .title-font { font-family: 'Playfair Display', serif; }
+        
+        .title-font {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(69, 10, 10, 0.65)), 
+                        url('https://picsum.photos/id/1015/2000/1200') center/cover no-repeat;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
         
         .photo-card {
             transition: all 0.4s ease;
             overflow: hidden;
-            border-radius: 20px;
+            border-radius: 24px;
         }
+        
         .photo-card:hover {
             transform: scale(1.04);
+            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.6);
         }
-        .gallery-img {
-            height: 240px;
-            object-fit: cover;
-            width: 100%;
+        
+        .heart {
+            animation: pulse 2s infinite;
         }
-        .heart { animation: pulse 2.5s infinite; }
-        @keyframes pulse { 0%,100% {transform:scale(1);} 50% {transform:scale(1.2);} }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.25); }
+        }
     </style>
 </head>
-<body class="bg-zinc-950">
-
-    <section class="min-h-screen flex items-center justify-center text-center px-6 bg-gradient-to-br from-zinc-900 to-black">
-        <div class="max-w-4xl">
-            <i class="fas fa-heart text-7xl text-red-500 heart mb-8"></i>
-            <h1 class="title-font text-6xl md:text-7xl font-bold text-white mb-4">Ирина Андреевна</h1>
-            <p class="text-3xl text-blue-300 mb-8">от Сунната с огромной любовью</p>
-            <a href="#gallery" class="inline-block bg-white text-zinc-900 px-10 py-4 rounded-full text-xl font-medium hover:bg-blue-100 transition-all">
-                Перейти к нашим моментам →
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="max-w-4xl px-6">
+            <div class="flex justify-center mb-8">
+                <i class="fas fa-heart text-8xl text-red-500 heart"></i>
+            </div>
+            <h1 class="title-font text-6xl md:text-7xl font-bold mb-4 tracking-tight text-white">Ирина Андреевна</h1>
+            <p class="text-3xl md:text-4xl mb-8 text-blue-300">от Сунната с огромной любовью</p>
+            <p class="text-xl max-w-lg mx-auto opacity-90">Наша история • Наши моменты • Моё сердце, которое всегда с Вами</p>
+            
+            <a href="#story" class="mt-16 inline-block bg-white hover:bg-blue-100 text-zinc-900 px-12 py-5 rounded-full text-xl font-medium transition-all">
+                Перейти к нашей истории →
             </a>
         </div>
     </section>
 
-    <section id="gallery" class="py-20 px-6">
+    <!-- Floating Music Player -->
+    <div class="fixed bottom-6 right-6 bg-zinc-900/95 backdrop-blur-lg p-5 rounded-3xl shadow-2xl border border-blue-500/30 z-50 flex items-center gap-4">
+        <button id="playBtn" class="w-14 h-14 bg-red-500 hover:bg-red-600 rounded-2xl flex items-center justify-center transition-all active:scale-95">
+            <i class="fas fa-play text-2xl text-white"></i>
+        </button>
+        <div class="text-left">
+            <p class="font-medium text-white">Три дня дождя — Хотя бы иногда</p>
+            <p class="text-xs text-zinc-400">Наша песня</p>
+        </div>
+    </div>
+
+    <audio id="loveSong" loop>
+        <source src="Три дня дождя - Хотя бы иногда.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Story -->
+    <section id="story" class="py-24 px-6 bg-zinc-900">
+        <div class="max-w-3xl mx-auto text-lg leading-relaxed">
+            <h2 class="title-font text-5xl font-bold text-center mb-16 text-blue-300">Наша история</h2>
+            
+            <div class="space-y-8">
+                <p>Мы познакомились на встрече группы VSP. С первой минуты Вы начали меня поддерживать — и это сразу тронуло очень глубоко.</p>
+                <p>Тёплым июльским вечером мы пили пиво, курили и разговаривали. Именно после Вашего слова <strong class="text-blue-400">"ПОНИМАЕШЬ"</strong> у меня в сердце что-то изменилось навсегда.</p>
+                <p>1 августа 2022 года я написал Вам. С тех пор мы почти не расставались в общении. Даже через сильные ссоры моя любовь к Вам не угасает ни на секунду.</p>
+                <p class="text-center text-3xl italic text-red-400 pt-12">Я люблю Вас, Ирина Андреевна.<br>Постоянно и очень сильно.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="py-20 px-6 bg-zinc-950">
         <div class="max-w-7xl mx-auto">
             <h2 class="title-font text-5xl font-bold text-center mb-4 text-white">Наши моменты</h2>
             <p class="text-center text-zinc-400 mb-12">Каждое фото — частичка нашей любви</p>
             
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="photoGrid"></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="gallery"></div>
         </div>
     </section>
 
+    <!-- Final words -->
+    <section class="py-32 px-6 text-center bg-gradient-to-b from-zinc-900 to-black">
+        <i class="fas fa-heart text-7xl text-red-500 mb-10 heart"></i>
+        <p class="text-3xl max-w-2xl mx-auto leading-relaxed">Спасибо, что Вы есть в моей жизни. Даже на расстоянии Вы — самое тёплое место в моём сердце.</p>
+        <p class="mt-16 text-blue-300 text-2xl">С безграничной любовью,<br><strong>Ваш Суннат</strong></p>
+    </section>
+
     <script>
+        // Gallery photos with captions
         const photos = [
-            {src: "attachments/2024-09-06 22-07-29.JPG", cap: "Наша красивая встреча в метро с розой"},
-            {src: "attachments/2024-05-17 22-26-20.HEIC", cap: "Твой взгляд, от которого замирает сердце"},
-            {src: "attachments/2024-08-03 10-57-19.JPG", cap: "Ты на фоне Невы"},
-            {src: "attachments/2024-06-25 00-15-47.HEIC", cap: "Мы вместе улыбаемся"},
-            {src: "attachments/2023-08-14 21-12-23.HEIC", cap: "SUP-прогулка на закате"},
-            {src: "attachments/2023-08-07 19-17-05.HEIC", cap: "Селфи с банданой"},
-            {src: "attachments/2023-07-16 20-49-30.HEIC", cap: "Закат у воды"},
-            {src: "attachments/2023-06-10 17-08-30.HEIC", cap: "На лавочке в парке"},
-            {src: "attachments/2023-06-10 16-58-10.JPG", cap: "Ты в цветочном поле"},
-            {src: "attachments/2023-04-17 18-03-30.HEIC", cap: "На набережной"},
-            {src: "attachments/2023-04-17 18-02-47.HEIC", cap: "Когда мы смотрим друг на друга"},
-            {src: "attachments/2024-06-08 20-35-14.JPG", cap: "Селфи в машине"},
-            {src: "attachments/2023-08-28 17-34-39.HEIC", cap: "В аэропорту"},
+            {src: "attachments/2024-09-06 22-07-29.JPG", cap: "Первая красивая встреча в метро. Вы с розой — этот момент я буду помнить всегда"},
+            {src: "attachments/2024-05-17 22-26-20.HEIC", cap: "Ваш взгляд, от которого замирает всё внутри. Вы всегда понимаете меня лучше всех"},
+            {src: "attachments/2024-08-03 10-57-19.JPG", cap: "Вы на фоне Невы — невероятно красивая и родная"},
+            {src: "attachments/2024-06-25 00-15-47.HEIC", cap: "Мы вместе. Просто улыбаемся — и этого достаточно"},
+            {src: "attachments/2023-08-14 21-12-23.HEIC", cap: "SUP-прогулка на закате. Лучшие моменты рядом с Вами"},
+            {src: "attachments/2023-08-07 19-17-05.HEIC", cap: "Селфи с банданой. С Вами любой вечер — праздник"},
+            {src: "attachments/2023-07-16 20-49-30.HEIC", cap: "Закат у воды. Одно из самых тёплых воспоминаний"},
+            {src: "attachments/2023-06-10 17-08-30.HEIC", cap: "На лавочке в парке. Тихо и очень хорошо"},
+            {src: "attachments/2023-06-10 16-58-10.JPG", cap: "Вы в цветочном поле — как из красивого сна"},
+            {src: "attachments/2023-04-17 18-03-30.HEIC", cap: "На набережной. Даже когда стоим спиной — чувствуем друг друга"},
+            {src: "attachments/2023-04-17 18-02-47.HEIC", cap: "Момент, когда смотрим друг на друга — и мир исчезает"},
+            {src: "attachments/2024-05-17 22-26-20.HEIC", cap: "В кафе. Эти разговоры я мог бы продолжать бесконечно"},
+            {src: "attachments/2023-08-28 17-34-39.HEIC", cap: "В аэропорту. Вместе даже в пути"}
         ];
 
         function buildGallery() {
-            const container = document.getElementById('photoGrid');
+            const container = document.getElementById('gallery');
             photos.forEach(p => {
                 const card = document.createElement('div');
                 card.className = "photo-card bg-zinc-900";
                 card.innerHTML = `
-                    <img src="${p.src}" class="gallery-img" alt="Фото">
-                    <div class="p-4">
-                        <p class="text-sm text-zinc-300">${p.cap}</p>
+                    <img src="${p.src}" alt="Фото" class="w-full aspect-square object-cover">
+                    <div class="p-6 bg-zinc-900">
+                        <p class="text-zinc-300 text-[15px] leading-snug">${p.cap}</p>
                     </div>
                 `;
                 container.appendChild(card);
             });
         }
 
-        window.onload = buildGallery;
+        // Music controls
+        const audio = document.getElementById('loveSong');
+        const playBtn = document.getElementById('playBtn');
+
+        playBtn.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                playBtn.innerHTML = `<i class="fas fa-pause text-2xl text-white"></i>`;
+            } else {
+                audio.pause();
+                playBtn.innerHTML = `<i class="fas fa-play text-2xl text-white"></i>`;
+            }
+        });
+
+        // Try autoplay
+        window.addEventListener('load', () => {
+            buildGallery();
+            audio.play().catch(() => {});
+        });
     </script>
 </body>
 </html>
