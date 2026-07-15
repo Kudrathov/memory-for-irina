@@ -1,83 +1,60 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Для Ирины Андреевны ❤️</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500&display=swap');
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #09090b;
-            color: #e4e4e7;
-            margin: 0;
-        }
-        .title-font { font-family: 'Playfair Display', serif; }
-        
-        .photo-card {
-            transition: all 0.4s ease;
-            border-radius: 20px;
-            overflow: hidden;
-        }
-        .gallery-img {
-            height: 220px;
-            object-fit: cover;
-            width: 100%;
-        }
-    </style>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Для Ирины ❤️</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
 </head>
-<body class="bg-zinc-950">
 
-    <section class="min-h-screen flex items-center justify-center text-center px-6 bg-gradient-to-br from-zinc-900 to-black">
-        <div class="max-w-4xl">
-            <i class="fas fa-heart text-7xl text-red-500 mb-8"></i>
-            <h1 class="title-font text-6xl md:text-7xl font-bold text-white mb-4">Ирина Андреевна</h1>
-            <p class="text-3xl text-blue-300 mb-8">от Сунната с любовью</p>
-        </div>
-    </section>
+<body>
 
-    <section class="py-20 px-6">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="title-font text-5xl font-bold text-center mb-4 text-white">Наши моменты</h2>
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="photoGrid"></div>
-        </div>
-    </section>
+<div id="stars"></div>
 
-    <script>
-        const photos = [
-            {src: "photos/2024-09-06 22-07-29.JPG", cap: "Наша встреча в метро"},
-            {src: "photos/2024-05-17 22-26-20.HEIC", cap: "Твой взгляд"},
-            {src: "photos/2024-08-03 10-57-19.JPG", cap: "На фоне Невы"},
-            {src: "photos/2024-06-25 00-15-47.HEIC", cap: "Мы улыбаемся"},
-            {src: "photos/2023-08-14 21-12-23.HEIC", cap: "SUP-прогулка"},
-            {src: "photos/2023-08-07 19-17-05.HEIC", cap: "С банданой"},
-            {src: "photos/2023-07-16 20-49-30.HEIC", cap: "Закат у воды"},
-            {src: "photos/2023-06-10 17-08-30.HEIC", cap: "На лавочке"},
-            {src: "photos/2023-06-10 16-58-10.JPG", cap: "В цветах"},
-            {src: "photos/2023-04-17 18-03-30.HEIC", cap: "На набережной"},
-            {src: "photos/2023-04-17 18-02-47.HEIC", cap: "Смотрим друг на друга"},
-            {src: "photos/2024-06-08 20-35-14.JPG", cap: "В машине"},
-            {src: "photos/2023-08-28 17-34-39.HEIC", cap: "В аэропорту"}
-        ];
+<div id="hearts"></div>
 
-        function buildGallery() {
-            const container = document.getElementById('photoGrid');
-            photos.forEach(p => {
-                const card = document.createElement('div');
-                card.className = "photo-card bg-zinc-900";
-                card.innerHTML = `
-                    <img src="${p.src}" class="gallery-img">
-                    <div class="p-3">
-                        <p class="text-xs text-zinc-400">${p.cap}</p>
-                    </div>
-                `;
-                container.appendChild(card);
-            });
-        }
+<section class="hero">
 
-        window.onload = buildGallery;
-    </script>
+<div class="glass">
+
+<h3>Для самой прекрасной девушки</h3>
+
+<h1>Ирины Андреевны</h1>
+
+<p>
+
+Каждая фотография —
+
+это маленькая история,
+
+которую хочется проживать снова.
+
+</p>
+
+<button id="start">
+
+❤️ Открыть нашу историю
+
+</button>
+
+</div>
+
+</section>
+
+<script src="script.js"></script>
+
 </body>
+
 </html>
